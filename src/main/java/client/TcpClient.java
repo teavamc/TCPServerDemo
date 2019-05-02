@@ -75,12 +75,8 @@ public class TcpClient {
 
     public static void main(String[] args) throws Exception {
         try {
-            long t0 = System.nanoTime();
-            for (int i = 0; i < 100; i++) {
-                TcpClient.sendMsg(i + "你好1");
-            }
-            long t1 = System.nanoTime();
-            System.out.println("time used:{"+(t1 - t0)+"}");
+            TcpClient.sendMsg("01");
+
         } catch (Exception e) {
             System.out.println("main err:"+ e);
         }

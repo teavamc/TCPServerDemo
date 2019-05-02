@@ -12,7 +12,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class TcpServerHandler extends SimpleChannelInboundHandler<Object> {
 
     /**
-        * 打印接收到的内容
+        * 打印接收到的内容，并
         * @author 张超 teavamc
         * @date 2019/5/2
         * @param [ctx, msg]
@@ -20,8 +20,16 @@ public class TcpServerHandler extends SimpleChannelInboundHandler<Object> {
         */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("SERVER接收到消息:" + msg);
-        ctx.channel().writeAndFlush("server accepted msg:" + msg);
+        if (msg == "01"){
+            System.out.println("收到开启风扇指令：" + msg);
+            ctx.channel().writeAndFlush("单片机已经开启风扇");
+        }else if(msg == "02"){
+            System.out.println("收到开启洒水指令：" + msg);
+            ctx.channel().writeAndFlush("单片机已经执行洒水");
+        }else {
+            System.out.println("不明指令：" + msg);
+            ctx.channel().writeAndFlush("指令错误，请检查");
+        }
     }
 
     @Override
