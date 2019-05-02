@@ -20,10 +20,10 @@ public class TcpServerHandler extends SimpleChannelInboundHandler<Object> {
         */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        if (msg == "01"){
+        if (msg.equals("01")){
             System.out.println("收到开启风扇指令：" + msg);
             ctx.channel().writeAndFlush("单片机已经开启风扇");
-        }else if(msg == "02"){
+        }else if(msg.equals("02")){
             System.out.println("收到开启洒水指令：" + msg);
             ctx.channel().writeAndFlush("单片机已经执行洒水");
         }else {
