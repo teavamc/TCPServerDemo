@@ -12,7 +12,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class TcpServerHandler extends SimpleChannelInboundHandler<Object> {
 
     /**
-        * 打印接收到的内容，并
+        * 打印接收到的内容，并回传
         * @author 张超 teavamc
         * @date 2019/5/2
         * @param [ctx, msg]
