@@ -11,6 +11,13 @@ import io.netty.channel.SimpleChannelInboundHandler;
  **/
 public class TcpServerHandler extends SimpleChannelInboundHandler<Object> {
 
+    /**
+        * 打印接收到的内容
+        * @author 张超 teavamc
+        * @date 2019/5/2
+        * @param [ctx, msg]
+        * @return void
+        */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("SERVER接收到消息:" + msg);

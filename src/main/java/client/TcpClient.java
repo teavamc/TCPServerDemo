@@ -46,6 +46,7 @@ public class TcpClient {
         return b;
     }
 
+//    连接端口
     public static final Channel getChannel(String host, int port) {
         Channel channel = null;
         try {
@@ -57,6 +58,13 @@ public class TcpClient {
         return channel;
     }
 
+    /**
+        * 发送信息
+        * @author 张超 teavamc
+        * @date 2019/5/2
+        * @param [msg]
+        * @return void
+        */
     public static void sendMsg(String msg) throws Exception {
         if (channel != null) {
             channel.writeAndFlush(msg).sync();
